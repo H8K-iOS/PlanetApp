@@ -3,7 +3,7 @@ import UIKit
 final class SliderScreenViewController: UIViewController {
     
     //MARK: - Variables
-    let viewModel: SliderViewModel //TODO: private aftr
+    private let viewModel: SliderViewModel
     private var pagers: [UIView] = []
     private var currentSlide = 0
     private var currentPageIndex: CGFloat = 0
@@ -13,7 +13,7 @@ final class SliderScreenViewController: UIViewController {
     private let taskShape = CAShapeLayer()
     private let animation = CABasicAnimation(keyPath: "strokeEnd")
     
-    //MARK: - Computed Propertie
+    //MARK: - UI Components
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: view.frame.width, height: view.frame.height)
@@ -105,6 +105,35 @@ final class SliderScreenViewController: UIViewController {
     
     //MARK: - Functions
     
+    @objc private func skipButtonTapped() {
+        nextViewController(transitionStyle: .partialCurl)
+    }
+    
+    @objc private func nextSlide() {
+        let maxSlide = viewModel.sliderData.count
+        if currentSlide < maxSlide - 1 {
+            currentSlide += 1
+            collectionView.scrollToItem(at: IndexPath(item: currentSlide, section: 0), at: .centeredHorizontally, animated: true)
+        } else if currentSlide == maxSlide - 1 {
+            nextViewController(transitionStyle: .coverVertical)
+        }
+    }
+    
+    @objc private func scrollSlide(sender: UIGestureRecognizer) {
+        if let index = sender.view?.tag {
+            collectionView.scrollToItem(at: IndexPath(item: index - 1, section: 0), at: .centeredHorizontally, animated: true)
+            
+            currentSlide = index - 1
+        }
+    }
+    
+    private func nextViewController(transitionStyle: UIModalTransitionStyle) {
+        let vc = HomeViewController()
+        vc.modalPresentationStyle = .fullScreen
+        vc.modalTransitionStyle = transitionStyle
+        self.present(vc, animated: true)
+    }
+    
     @objc private func setShape() {
         currentPageIndex = CGFloat(1) / CGFloat(viewModel.sliderData.count)
         
@@ -126,36 +155,6 @@ final class SliderScreenViewController: UIViewController {
         shape.strokeEnd = 0
         
         nextView.layer.addSublayer(shape)
-    }
-    
-    @objc private func nextSlide() {
-        let maxSlide = viewModel.sliderData.count
-        if currentSlide < maxSlide - 1 {
-            currentSlide += 1
-            collectionView.scrollToItem(at: IndexPath(item: currentSlide, section: 0), at: .centeredHorizontally, animated: true)
-        } else if currentSlide == maxSlide - 1 {
-            nextViewController(transitionStyle: .coverVertical)
-        }
-        
-    }
-    
-    @objc private func skipButtonTapped() {
-        nextViewController(transitionStyle: .partialCurl)
-    }
-    
-    @objc private func scrollSlide(sender: UIGestureRecognizer) {
-        if let index = sender.view?.tag {
-            collectionView.scrollToItem(at: IndexPath(item: index - 1, section: 0), at: .centeredHorizontally, animated: true)
-            
-            currentSlide = index - 1
-        }
-    }
-    
-    private func nextViewController(transitionStyle: UIModalTransitionStyle) {
-        let vc = HomeViewController()
-        vc.modalPresentationStyle = .fullScreen
-        vc.modalTransitionStyle = transitionStyle
-        self.present(vc, animated: true)
     }
 }
 

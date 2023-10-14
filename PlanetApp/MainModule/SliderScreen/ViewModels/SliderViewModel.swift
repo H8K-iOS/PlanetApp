@@ -1,7 +1,7 @@
 import Foundation
 import UIKit
 
-class SliderViewModel {
+final class SliderViewModel {
     
     private(set) var sliderData: [SliderData] = [
         //MOC Data

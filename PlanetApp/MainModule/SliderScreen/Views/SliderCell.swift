@@ -4,10 +4,10 @@ import Lottie
 final class SliderCell: UICollectionViewCell {
     
     //MARK: - Variables
-    private(set) var sliderData: SliderData!
     static let identifire = "SliderCell"
     private let lottieView = LottieAnimationView()
     
+    //MARK: - UI Components
     let titleLabel: UILabel = {
         let label = UILabel()
         label.textColor = .white
