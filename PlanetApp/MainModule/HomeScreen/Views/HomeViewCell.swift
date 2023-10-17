@@ -10,6 +10,7 @@ import UIKit
 class HomeViewCell: UITableViewCell {
     //MARK: - Variables
     static let identifier = "HomeCell"
+    private(set) var planetData: PlanetData!
     
     //MARK: - UI Components
     let planetImg: UIImageView = {
@@ -17,7 +18,6 @@ class HomeViewCell: UITableViewCell {
         iv.contentMode = .scaleAspectFit
         iv.image = UIImage(systemName: "questionmark")
         iv.tintColor = .white
-        iv.backgroundColor = .gray
         iv.translatesAutoresizingMaskIntoConstraints = false
         return iv
     }()
@@ -26,7 +26,7 @@ class HomeViewCell: UITableViewCell {
         let lab = UILabel()
         lab.text = "Name"
         lab.textColor = .white
-        lab.font = .systemFont(ofSize: 24, weight: .medium)
+        lab.font = .systemFont(ofSize: 32, weight: .medium)
         lab.translatesAutoresizingMaskIntoConstraints = false
         return lab
     }()
@@ -34,7 +34,7 @@ class HomeViewCell: UITableViewCell {
     let descriptionLabel: UILabel = {
         let dl = UILabel()
         dl.text = "Description"
-        dl.textColor = .white
+        dl.textColor = .gray
         dl.font = .systemFont(ofSize: 20, weight: .medium)
         dl.translatesAutoresizingMaskIntoConstraints = false
         return dl
@@ -60,6 +60,12 @@ class HomeViewCell: UITableViewCell {
     }
     
     //MARK: - Function
+    public func configCell(with data: PlanetData) {
+        self.planetData = data
+        self.nameLabel.text = data.name
+        self.descriptionLabel.text = data.description
+        self.planetImg.image = UIImage(named: planetData?.imageName ?? "")
+    }
     
     //TODO: - Constraints
     private func setupUI() {
@@ -69,15 +75,14 @@ class HomeViewCell: UITableViewCell {
         self.addSubview(planetImg)
         
         NSLayoutConstraint.activate([
-            labelStack.centerXAnchor.constraint(equalTo: centerXAnchor),
-            labelStack.centerYAnchor.constraint(equalTo: centerYAnchor),
-            labelStack.heightAnchor.constraint(equalToConstant: 50),
-
             planetImg.centerYAnchor.constraint(equalTo: centerYAnchor),
             planetImg.leftAnchor.constraint(equalTo: leftAnchor, constant: 20),
-            planetImg.widthAnchor.constraint(equalToConstant: 100),
-            planetImg.heightAnchor.constraint(equalToConstant: 100)
+            planetImg.widthAnchor.constraint(equalToConstant: 130),
+            planetImg.heightAnchor.constraint(equalToConstant: 130),
             
+            labelStack.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -20),
+            labelStack.leftAnchor.constraint(equalTo: planetImg.rightAnchor, constant: 16),
+            labelStack.rightAnchor.constraint(equalTo: rightAnchor, constant: -20)
         ])
     }
 }

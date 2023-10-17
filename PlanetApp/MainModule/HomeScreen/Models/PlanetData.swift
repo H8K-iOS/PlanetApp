@@ -10,8 +10,8 @@ import Foundation
 struct PlanetData {
     let name: String
     let description: String
-    let imageName: String
-    let distase: String
+    let imageName: String?
+    let distanse: String
     
     let detailInfo: DetailInfo
 }

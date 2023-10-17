@@ -2,9 +2,11 @@ import UIKit
 
 final class HomeViewController: UIViewController {
     
+    //MARK: - Variables
     let tableView = UITableView()
     let viewModel: HomeViewModel
     
+    //MARK: - Life Cycle
     init(_ viewModel: HomeViewModel = HomeViewModel()) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -23,8 +25,11 @@ final class HomeViewController: UIViewController {
         setViews()
         setLayouts()
     }
+    //MARK: - Functions
+    
 }
 
+//MARK: - Extensions
 extension HomeViewController {
     private func setViews() {
         view.addSubview(tableView)
@@ -46,6 +51,7 @@ extension HomeViewController {
     }
 }
 
+//MARK: - Table View Settings
 //TODO: -
 extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -54,8 +60,8 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
        guard let cell = tableView.dequeueReusableCell(withIdentifier: HomeViewCell.identifier, for: indexPath) as? HomeViewCell else { fatalError("fatal error") }
-        cell.nameLabel.text = viewModel.planetData[indexPath.row].name
-        cell.descriptionLabel.text = viewModel.planetData[indexPath.row].description
+        let planet = self.viewModel.planetData[indexPath.row]
+        cell.configCell(with: planet)
         
         return cell
     }
@@ -64,4 +70,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         200
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
+    }
 }
