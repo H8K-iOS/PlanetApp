@@ -1,13 +1,6 @@
-//
-//  HomeViewCell.swift
-//  PlanetApp
-//
-//  Created by Alexandr Alimov on 14/10/23.
-//
-
 import UIKit
 
-class HomeViewCell: UITableViewCell {
+final class HomeViewCell: UITableViewCell {
     //MARK: - Variables
     static let identifier = "HomeCell"
     private(set) var planetData: PlanetData!
@@ -65,6 +58,13 @@ class HomeViewCell: UITableViewCell {
         self.nameLabel.text = data.name
         self.descriptionLabel.text = data.description
         self.planetImg.image = UIImage(named: planetData?.imageName ?? "")
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.planetImg.image = nil
+        self.nameLabel.text = nil
+        self.descriptionLabel.text = nil
     }
     
     //TODO: - Constraints

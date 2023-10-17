@@ -37,7 +37,7 @@ extension HomeViewController {
         tableView.backgroundColor = .black
         self.view.backgroundColor = .black
         
-        self.title = "Planets List"
+        self.title = "Planets"
         navigationController?.navigationBar.prefersLargeTitles = true
     }
     
@@ -62,7 +62,6 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
        guard let cell = tableView.dequeueReusableCell(withIdentifier: HomeViewCell.identifier, for: indexPath) as? HomeViewCell else { fatalError("fatal error") }
         let planet = self.viewModel.planetData[indexPath.row]
         cell.configCell(with: planet)
-        
         return cell
     }
     
@@ -72,5 +71,9 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
+        let planetData = viewModel.planetData[indexPath.row]
+        let vm = PlanetDetailViewModel(planetData)
+        let vc = PlanetDetailViewController(vm)
+        navigationController?.pushViewController(vc, animated: true)
     }
 }

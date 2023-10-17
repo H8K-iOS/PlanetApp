@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8C2713302ADE920600DEC978 /* PlanetDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C27132F2ADE920600DEC978 /* PlanetDetailViewModel.swift */; };
+		8C2713322ADE92D400DEC978 /* PlanetDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2713312ADE92D400DEC978 /* PlanetDetailViewController.swift */; };
 		8CA657A52ADAD6F900D9C65B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA657A42ADAD6F900D9C65B /* AppDelegate.swift */; };
 		8CA657A72ADAD6F900D9C65B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA657A62ADAD6F900D9C65B /* SceneDelegate.swift */; };
 		8CA657A92ADAD6F900D9C65B /* SliderScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA657A82ADAD6F900D9C65B /* SliderScreenViewController.swift */; };
@@ -26,6 +28,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8C27132F2ADE920600DEC978 /* PlanetDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetDetailViewModel.swift; sourceTree = "<group>"; };
+		8C2713312ADE92D400DEC978 /* PlanetDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetDetailViewController.swift; sourceTree = "<group>"; };
 		8CA657A12ADAD6F900D9C65B /* PlanetApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlanetApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CA657A42ADAD6F900D9C65B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8CA657A62ADAD6F900D9C65B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -57,6 +61,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8C27132D2ADE91DE00DEC978 /* HomeView */ = {
+			isa = PBXGroup;
+			children = (
+				8CA657D52ADADA3D00D9C65B /* HomeViewController.swift */,
+				8CA657D72ADB01D200D9C65B /* HomeViewCell.swift */,
+			);
+			path = HomeView;
+			sourceTree = "<group>";
+		};
+		8C27132E2ADE91EC00DEC978 /* DetailVIew */ = {
+			isa = PBXGroup;
+			children = (
+				8C2713312ADE92D400DEC978 /* PlanetDetailViewController.swift */,
+			);
+			path = DetailVIew;
+			sourceTree = "<group>";
+		};
 		8CA657982ADAD6F900D9C65B = {
 			isa = PBXGroup;
 			children = (
@@ -76,6 +97,7 @@
 		8CA657A32ADAD6F900D9C65B /* PlanetApp */ = {
 			isa = PBXGroup;
 			children = (
+				8CA657B82ADAD74000D9C65B /* Application */,
 				8CA657BA2ADAD7CB00D9C65B /* MainModule */,
 				8CA657B92ADAD76200D9C65B /* SupportingFiles */,
 			);
@@ -105,7 +127,6 @@
 		8CA657BA2ADAD7CB00D9C65B /* MainModule */ = {
 			isa = PBXGroup;
 			children = (
-				8CA657B82ADAD74000D9C65B /* Application */,
 				8CA657BC2ADAD7EF00D9C65B /* HomeScreen */,
 				8CA657BB2ADAD7E900D9C65B /* SliderScreen */,
 			);
@@ -135,8 +156,8 @@
 		8CA657BD2ADAD80000D9C65B /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				8CA657D52ADADA3D00D9C65B /* HomeViewController.swift */,
-				8CA657D72ADB01D200D9C65B /* HomeViewCell.swift */,
+				8C27132E2ADE91EC00DEC978 /* DetailVIew */,
+				8C27132D2ADE91DE00DEC978 /* HomeView */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -145,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				8CA657D92ADB0A9000D9C65B /* HomeViewModel.swift */,
+				8C27132F2ADE920600DEC978 /* PlanetDetailViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -274,9 +296,11 @@
 				8CA657A92ADAD6F900D9C65B /* SliderScreenViewController.swift in Sources */,
 				8CA657DA2ADB0A9000D9C65B /* HomeViewModel.swift in Sources */,
 				8CA657D82ADB01D200D9C65B /* HomeViewCell.swift in Sources */,
+				8C2713322ADE92D400DEC978 /* PlanetDetailViewController.swift in Sources */,
 				8CA657D02ADAD97C00D9C65B /* SliderViewModel.swift in Sources */,
 				8CA657A52ADAD6F900D9C65B /* AppDelegate.swift in Sources */,
 				8CA657CF2ADAD97C00D9C65B /* SliderData.swift in Sources */,
+				8C2713302ADE920600DEC978 /* PlanetDetailViewModel.swift in Sources */,
 				8CA657CE2ADAD97C00D9C65B /* SliderCell.swift in Sources */,
 				8CA657DC2ADB0ABB00D9C65B /* PlanetData.swift in Sources */,
 				8CA657D62ADADA3D00D9C65B /* HomeViewController.swift in Sources */,

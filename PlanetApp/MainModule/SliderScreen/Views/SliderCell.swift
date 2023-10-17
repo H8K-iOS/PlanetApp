@@ -6,6 +6,7 @@ final class SliderCell: UICollectionViewCell {
     //MARK: - Variables
     static let identifire = "SliderCell"
     private let lottieView = LottieAnimationView()
+    private(set) var sliderData: SliderData!
     
     //MARK: - UI Components
     let titleLabel: UILabel = {
@@ -50,6 +51,14 @@ final class SliderCell: UICollectionViewCell {
     }
     
     //MARK: - Functions
+    public func configCell(with data: SliderData) {
+        self.sliderData = data
+        self.titleLabel.text = data.tittle
+        self.subTextLabel.text = data.subText
+        self.animationSetup(animationName: data.animationName)
+        self.backgroundColor = .gray.withAlphaComponent(0.1)
+    }
+    
     private func setSlide() {
         contentView.addSubview(verticakStackView)
         self.verticakStackView.addSubview(titleLabel)

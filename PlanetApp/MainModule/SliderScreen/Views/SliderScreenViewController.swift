@@ -215,10 +215,8 @@ extension SliderScreenViewController: UICollectionViewDelegate, UICollectionView
        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SliderCell.identifire, for: indexPath) as? SliderCell else {
             fatalError("Unable to dequeue")
         }
-        cell.titleLabel.text = viewModel.sliderData[indexPath.item].tittle
-        cell.subTextLabel.text = viewModel.sliderData[indexPath.item].subText
-        cell.animationSetup(animationName: viewModel.sliderData[indexPath.item].animationName)
-        cell.backgroundColor = .darkGray
+        let sliderData = viewModel.sliderData[indexPath.row]
+        cell.configCell(with: sliderData)
         return cell
     }
     

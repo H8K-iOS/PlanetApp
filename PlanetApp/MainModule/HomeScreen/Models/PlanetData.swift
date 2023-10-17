@@ -11,7 +11,7 @@ struct PlanetData {
     let name: String
     let description: String
     let imageName: String?
-    let distanse: String
+    let distance: String
     
     let detailInfo: DetailInfo
 }
