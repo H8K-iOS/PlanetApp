@@ -15,7 +15,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             window?.rootViewController = SliderScreenViewController()
             UserDefaults.standard.set(true, forKey: "firstLaunch")
         } else {
-            window?.rootViewController = UINavigationController(rootViewController: HomeViewController())
+            let nav = UINavigationController(rootViewController: HomeViewController())
+            nav.setupNavBarColor()
+            window?.rootViewController = nav
         }
         window?.makeKeyAndVisible()
     }

@@ -58,15 +58,9 @@ final class HomeViewCell: UITableViewCell {
         self.nameLabel.text = data.name
         self.descriptionLabel.text = data.description
         self.planetImg.image = UIImage(named: planetData?.imageName ?? "")
+        self.backgroundColor = .black   
     }
-    
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        self.planetImg.image = nil
-        self.nameLabel.text = nil
-        self.descriptionLabel.text = nil
-    }
-    
+
     //TODO: - Constraints
     private func setupUI() {
         labelStack.addArrangedSubview(nameLabel)

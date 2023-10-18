@@ -18,6 +18,7 @@ final class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+      
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(HomeViewCell.self, forCellReuseIdentifier: HomeViewCell.identifier)
@@ -39,6 +40,7 @@ extension HomeViewController {
         
         self.title = "Planets"
         navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.largeTitleDisplayMode = .always
     }
     
     private func setLayouts() {
