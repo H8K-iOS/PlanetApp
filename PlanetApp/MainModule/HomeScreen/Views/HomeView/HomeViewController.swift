@@ -3,9 +3,9 @@ import UIKit
 final class HomeViewController: UIViewController {
     
     //MARK: - Variables
-    let tableView = UITableView()
-    let viewModel: HomeViewModel
-    
+    private let tableView = UITableView()
+    private let viewModel: HomeViewModel
+    private let firstLaunch = UserDefaults.standard.value(forKey: "firstLaunch") == nil
     //MARK: - Life Cycle
     init(_ viewModel: HomeViewModel = HomeViewModel()) {
         self.viewModel = viewModel
@@ -25,9 +25,15 @@ final class HomeViewController: UIViewController {
         
         setViews()
         setLayouts()
+        ifFirstLaunch()
     }
     //MARK: - Functions
-    
+    private func ifFirstLaunch() {
+        if firstLaunch {
+            self.present(SliderScreenViewController(), animated: true)
+            UserDefaults.standard.setValue(true, forKey: "firstLaunch")
+        }
+    }
 }
 
 //MARK: - Extensions

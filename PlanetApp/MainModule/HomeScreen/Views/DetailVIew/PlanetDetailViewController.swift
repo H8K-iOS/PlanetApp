@@ -27,6 +27,18 @@ final class PlanetDetailViewController: UIViewController {
         
         return btn
     }()
+    
+    private lazy var backButton: UIButton = {
+        let btn = UIButton()
+        btn.frame = CGRect(x: 0, y: 0, width: 42, height: 42)
+        btn.backgroundColor = .darkGray
+        btn.layer.cornerRadius = 15
+        btn.setImage(UIImage(systemName: "arrow.left"), for: .normal)
+        btn.tintColor = .white
+        
+        btn.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
+        return btn
+    }()
 
     //MARK: - Life Cycle
     init(_ viewModel: PlanetDetailViewModel) {
@@ -72,21 +84,7 @@ extension PlanetDetailViewController {
         self.navigationItem.largeTitleDisplayMode = .never
         self.navigationController?.navigationBar.tintColor = .gray
         self.navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "", style: .done, target: nil, action: nil)
-        
-        let backButton: UIView = {
-            let iv = UIImageView()
-            iv.image = UIImage(systemName: "chevron.backward.circle.fill")
-            iv.layer.borderColor = UIColor.white.cgColor
-            iv.frame = CGRect(x: 0, y: 0, width: 47, height: 80)
-            iv.layer.masksToBounds = true
-            
-            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(backButtonTapped))
-            iv.isUserInteractionEnabled = true
-            iv.addGestureRecognizer(tapGesture)
-            
-            return iv
-
-        }()
+    
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backButton)
         

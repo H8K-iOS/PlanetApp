@@ -25,6 +25,7 @@ final class SliderScreenViewController: UIViewController {
         cv.delegate = self
         cv.dataSource = self
         cv.register(SliderCell.self, forCellWithReuseIdentifier: SliderCell.identifire)
+        cv.showsHorizontalScrollIndicator = false
         cv.translatesAutoresizingMaskIntoConstraints = false
         cv.isPagingEnabled = true
         return cv
@@ -89,6 +90,7 @@ final class SliderScreenViewController: UIViewController {
     init(_ viewModel: SliderViewModel = SliderViewModel()) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
+        self.modalPresentationStyle = .overFullScreen
     }
     
     required init?(coder: NSCoder) {
@@ -106,7 +108,7 @@ final class SliderScreenViewController: UIViewController {
     //MARK: - Functions
     
     @objc private func skipButtonTapped() {
-        nextViewController(transitionStyle: .partialCurl)
+        self.dismiss(animated: true)
     }
     
     @objc private func nextSlide() {
@@ -115,7 +117,7 @@ final class SliderScreenViewController: UIViewController {
             currentSlide += 1
             collectionView.scrollToItem(at: IndexPath(item: currentSlide, section: 0), at: .centeredHorizontally, animated: true)
         } else if currentSlide == maxSlide - 1 {
-            nextViewController(transitionStyle: .coverVertical)
+            self.dismiss(animated: true)
         }
     }
     
@@ -125,13 +127,6 @@ final class SliderScreenViewController: UIViewController {
             
             currentSlide = index - 1
         }
-    }
-    
-    private func nextViewController(transitionStyle: UIModalTransitionStyle) {
-        let vc = HomeViewController()
-        vc.modalPresentationStyle = .fullScreen
-        vc.modalTransitionStyle = transitionStyle
-        self.present(vc, animated: true)
     }
     
     @objc private func setShape() {
