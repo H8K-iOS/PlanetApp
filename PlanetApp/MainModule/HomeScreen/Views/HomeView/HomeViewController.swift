@@ -3,9 +3,9 @@ import UIKit
 final class HomeViewController: UIViewController {
     
     //MARK: - Variables
+    private let firstLaunch = UserDefaults.standard.value(forKey: "firstLaunch") == nil
     private let tableView = UITableView()
     private let viewModel: HomeViewModel
-    private let firstLaunch = UserDefaults.standard.value(forKey: "firstLaunch") == nil
     //MARK: - Life Cycle
     init(_ viewModel: HomeViewModel = HomeViewModel()) {
         self.viewModel = viewModel
@@ -27,6 +27,7 @@ final class HomeViewController: UIViewController {
         setLayouts()
         ifFirstLaunch()
     }
+    
     //MARK: - Functions
     private func ifFirstLaunch() {
         if firstLaunch {

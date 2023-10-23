@@ -17,9 +17,9 @@
 		8C67F0392AE0350E00CCAED5 /* jupiter3d.scn in Resources */ = {isa = PBXBuildFile; fileRef = 8C67F0302AE0350E00CCAED5 /* jupiter3d.scn */; };
 		8C67F03A2AE0350E00CCAED5 /* neptune3d.scn in Resources */ = {isa = PBXBuildFile; fileRef = 8C67F0312AE0350E00CCAED5 /* neptune3d.scn */; };
 		8C67F03B2AE0350E00CCAED5 /* venus3d.scn in Resources */ = {isa = PBXBuildFile; fileRef = 8C67F0322AE0350E00CCAED5 /* venus3d.scn */; };
-		8C67F03C2AE0350E00CCAED5 /* earth3d.scn in Resources */ = {isa = PBXBuildFile; fileRef = 8C67F0332AE0350E00CCAED5 /* earth3d.scn */; };
 		8C67F03D2AE0350E00CCAED5 /* mars3d.scn in Resources */ = {isa = PBXBuildFile; fileRef = 8C67F0342AE0350E00CCAED5 /* mars3d.scn */; };
 		8C67F03E2AE0350E00CCAED5 /* pluto3d.scn in Resources */ = {isa = PBXBuildFile; fileRef = 8C67F0352AE0350E00CCAED5 /* pluto3d.scn */; };
+		8C8E75432AE6915D00748F01 /* earth3d.scn in Resources */ = {isa = PBXBuildFile; fileRef = 8C8E75422AE6915D00748F01 /* earth3d.scn */; };
 		8CA657A52ADAD6F900D9C65B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA657A42ADAD6F900D9C65B /* AppDelegate.swift */; };
 		8CA657A72ADAD6F900D9C65B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA657A62ADAD6F900D9C65B /* SceneDelegate.swift */; };
 		8CA657A92ADAD6F900D9C65B /* SliderScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA657A82ADAD6F900D9C65B /* SliderScreenViewController.swift */; };
@@ -49,9 +49,9 @@
 		8C67F0302AE0350E00CCAED5 /* jupiter3d.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = jupiter3d.scn; sourceTree = "<group>"; };
 		8C67F0312AE0350E00CCAED5 /* neptune3d.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = neptune3d.scn; sourceTree = "<group>"; };
 		8C67F0322AE0350E00CCAED5 /* venus3d.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = venus3d.scn; sourceTree = "<group>"; };
-		8C67F0332AE0350E00CCAED5 /* earth3d.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = earth3d.scn; sourceTree = "<group>"; };
 		8C67F0342AE0350E00CCAED5 /* mars3d.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; name = mars3d.scn; path = ../../../../../../../Desktop/3d/mars3d.scn; sourceTree = "<group>"; };
 		8C67F0352AE0350E00CCAED5 /* pluto3d.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = pluto3d.scn; sourceTree = "<group>"; };
+		8C8E75422AE6915D00748F01 /* earth3d.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = earth3d.scn; sourceTree = "<group>"; };
 		8CA657A12ADAD6F900D9C65B /* PlanetApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlanetApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CA657A42ADAD6F900D9C65B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8CA657A62ADAD6F900D9C65B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -112,7 +112,7 @@
 		8C67F0212AE023BB00CCAED5 /* Planets3d */ = {
 			isa = PBXGroup;
 			children = (
-				8C67F0332AE0350E00CCAED5 /* earth3d.scn */,
+				8C8E75422AE6915D00748F01 /* earth3d.scn */,
 				8C67F0302AE0350E00CCAED5 /* jupiter3d.scn */,
 				8C67F0342AE0350E00CCAED5 /* mars3d.scn */,
 				8C67F02D2AE0350D00CCAED5 /* mercury3d.scn */,
@@ -338,12 +338,12 @@
 				8C67F0362AE0350E00CCAED5 /* mercury3d.scn in Resources */,
 				8C67F03B2AE0350E00CCAED5 /* venus3d.scn in Resources */,
 				8CA657C82ADAD93100D9C65B /* n3.json in Resources */,
-				8C67F03C2AE0350E00CCAED5 /* earth3d.scn in Resources */,
 				8C67F0372AE0350E00CCAED5 /* saturn3d.scn in Resources */,
 				8CA657C72ADAD93100D9C65B /* n1.json in Resources */,
 				8CA657B12ADAD6FB00D9C65B /* LaunchScreen.storyboard in Resources */,
 				8C67F0392AE0350E00CCAED5 /* jupiter3d.scn in Resources */,
 				8C67F03A2AE0350E00CCAED5 /* neptune3d.scn in Resources */,
+				8C8E75432AE6915D00748F01 /* earth3d.scn in Resources */,
 				8CA657AE2ADAD6FB00D9C65B /* Assets.xcassets in Resources */,
 				8CA657C92ADAD93100D9C65B /* n2.json in Resources */,
 				8C67F03D2AE0350E00CCAED5 /* mars3d.scn in Resources */,
@@ -516,8 +516,9 @@
 				INFOPLIST_FILE = PlanetApp/SupportingFiles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -525,9 +526,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = AA.PlanetApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -543,8 +547,9 @@
 				INFOPLIST_FILE = PlanetApp/SupportingFiles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -552,9 +557,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = AA.PlanetApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

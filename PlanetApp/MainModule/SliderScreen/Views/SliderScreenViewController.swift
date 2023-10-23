@@ -176,6 +176,7 @@ extension SliderScreenViewController {
             self.pagers.append(pager)
             pagerStack.addArrangedSubview(pager)
         }
+        
         vStack.addArrangedSubview(pagerStack)
         vStack.addArrangedSubview(skipBtn)
         hStack.addArrangedSubview(vStack)
