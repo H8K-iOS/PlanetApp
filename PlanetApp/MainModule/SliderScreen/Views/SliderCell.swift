@@ -78,13 +78,13 @@ final class SliderCell: UICollectionViewCell {
         lottieView.animation = LottieAnimation.named(animationName)
         lottieView.loopMode = .loop
         lottieView.contentMode = .scaleAspectFit
-
+        
         NSLayoutConstraint.activate([
             lottieView.centerXAnchor.constraint(equalTo: centerXAnchor),
             lottieView.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 40),
             lottieView.heightAnchor.constraint(equalToConstant: 400),
         ])
-
+        
         lottieView.play()
     }
 }

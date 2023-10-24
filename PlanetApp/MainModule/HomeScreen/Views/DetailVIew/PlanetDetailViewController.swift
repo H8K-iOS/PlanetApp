@@ -5,29 +5,53 @@ final class PlanetDetailViewController: UIViewController {
     
     //MARK: - Variables
     private let viewModel: PlanetDetailViewModel
-    private let vStack = UIStackView()
-    private let nameLabel = UILabel()
-    private let descriptionLabel = UILabel()
-    private let distanceLabelsVStack = UIStackView()
-    private let distanceHStack = UIStackView()
-    private let distanceFrmEarthLabel = UILabel()
-    private let distanceLabel = UILabel()
-    private let buttonHStack = UIStackView()
     private var isActive = false
-        //TODO: -
     
     //MARK: - UIComponents
-    private let sceneView: SCNView = {
-        let sceenV = SCNView()
-        sceenV.backgroundColor = .clear
-        sceenV.autoenablesDefaultLighting = true
-        sceenV.allowsCameraControl = false
-        sceenV.translatesAutoresizingMaskIntoConstraints = false
-        sceenV.antialiasingMode = .multisampling2X
-        return sceenV
-    }()
+    private lazy var nameLabel = createNameLabel()
+    private lazy var descriptionLabel = createDescriptionLabel()
+    private lazy var distanceLabel = createDistanceLabel()
+    private lazy var distanceFrmEarthLabel = createDistanceFrmEarthLabel()
+    private lazy var vStack = createVStack()
+    private lazy var distanceLabelsVStack = createDistanceLabelsVStack()
+    private lazy var buttonHStack = createButtonHStack()
+    private lazy var distanceHStack = createDistanceHStack()
+    private lazy var sceneView = createSceneView()
     
-   // private let customCollectionView = UICollectionView()
+    private lazy var rotationPlanetButton = createDistanteButton(imgName: "arrow.triangle.2.circlepath",
+                                                                 selector: #selector(rotationPlanetBtnTapped)
+    )
+    
+    private lazy var infoPlanetButton = createDistanteButton(imgName: "questionmark",
+                                                             selector: #selector(infoPlanetBtnTapped)
+    )
+    
+    private lazy var backButton = createCustomBarButton(imgName: "arrow.left",
+                                                        selector: #selector(backBtnTapped)
+    )
+    
+    private lazy var shareButton = createCustomBarButton(imgName: "square.and.arrow.up",
+                                                         selector: #selector(shareBtnTapped)
+    )
+    
+    //TODO: -
+    lazy private var collectionView: UICollectionView = {
+        //        let layout = UICollectionViewFlowLayout()
+        //        layout.itemSize = CGSize(width: 50, height: 50)
+        //        layout.minimumLineSpacing = 0
+        //        layout.minimumInteritemSpacing = 0
+        //        layout.scrollDirection = .horizontal
+        //
+        let cv = UICollectionView()
+        //        cv.delegate = self
+        //        cv.dataSource = self
+        //        cv.backgroundColor = .cyan
+        //        cv.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        //        cv.showsHorizontalScrollIndicator = false
+        //        cv.translatesAutoresizingMaskIntoConstraints = false
+        //        cv.isPagingEnabled = true
+        return cv
+    }()
     
     //MARK: - Life Cycle
     init(_ viewModel: PlanetDetailViewModel) {
@@ -44,10 +68,12 @@ final class PlanetDetailViewController: UIViewController {
         view.backgroundColor = .black
         
         setNavigationBar()
-        setViews()
+        setHierarchy()
         setLayouts()
+        
         setPlanetData()
         planetRotation()
+        
     }
     //MARK: - Functions
     @objc private func backBtnTapped() {
@@ -75,7 +101,7 @@ final class PlanetDetailViewController: UIViewController {
 
 //MARK: - Extensions
 extension PlanetDetailViewController {
-    //MARK: - Display Data
+    //MARK: Display Data
     private func setPlanetData() {
         nameLabel.text = viewModel.name
         descriptionLabel.text = viewModel.description
@@ -85,86 +111,28 @@ extension PlanetDetailViewController {
             sceneView.scene = scene
         }
     }
-
-    //MARK: - Setup NavigationBar
+    
+    //MARK: Setup NavigationBar
     private func setNavigationBar() {
         self.navigationItem.largeTitleDisplayMode = .never
         self.navigationController?.navigationBar.tintColor = .gray
-        
-        let backButton = createCustomBarButton(imgName: "arrow.left",
-                                               tintColor: .white,
-                                               backgroundColor: .darkGray,
-                                               selector: #selector(backBtnTapped))
-        
-        let shareButton = createCustomBarButton(imgName: "square.and.arrow.up",
-                                                tintColor: .gray,
-                                                backgroundColor: .gray,
-                                                selector: #selector(shareBtnTapped))
-        
         navigationItem.rightBarButtonItems = [shareButton]
         navigationItem.leftBarButtonItem = backButton
     }
     
-    //MARK: - Setup SCNView
+    //MARK:  Setup Planet Rotation
     private func planetRotation() {
         let rotationAnimation = CABasicAnimation(keyPath: "rotation")
-        rotationAnimation.toValue = NSValue(scnVector4: SCNVector4(x: 0, y: 2, z: 0, w: 10))
-        rotationAnimation.duration = 100
+        rotationAnimation.toValue = NSValue(scnVector4: SCNVector4(x: 0, y: 2, z: 0, w: 20))
+        rotationAnimation.duration = 500
         rotationAnimation.repeatCount = .infinity
         sceneView.scene?.rootNode.addAnimation(rotationAnimation, forKey: "rotation")
     }
     
     //MARK: - Setup Views
-    private func setViews() {
-        //MARK: - Views
-        let rotationPlanetButton = createDistanteButton(imgName: "arrow.triangle.2.circlepath", selector: #selector(rotationPlanetBtnTapped))
-        
-        let infoPlanetButton = createDistanteButton(imgName: "questionmark", selector: #selector(infoPlanetBtnTapped))
-        
-        vStack.translatesAutoresizingMaskIntoConstraints = false
-        nameLabel.translatesAutoresizingMaskIntoConstraints = false
-        descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
-        distanceLabelsVStack.translatesAutoresizingMaskIntoConstraints = false
-        distanceHStack.translatesAutoresizingMaskIntoConstraints = false
-        distanceFrmEarthLabel.translatesAutoresizingMaskIntoConstraints = false
-        distanceLabel.translatesAutoresizingMaskIntoConstraints = false
-        buttonHStack.translatesAutoresizingMaskIntoConstraints = false
-        
-        nameLabel.text = "text"
-        nameLabel.textColor = .white
-        nameLabel.textAlignment = .left
-        nameLabel.font = .systemFont(ofSize: 60, weight: .light)
     
-        descriptionLabel.text = "text"
-        descriptionLabel.textColor = .darkGray
-        descriptionLabel.textAlignment = .left
-        descriptionLabel.font = .systemFont(ofSize: 22, weight: .light)
-        
-        distanceFrmEarthLabel.text = "Distance from Earth"
-        distanceFrmEarthLabel.textColor = .darkGray
-        
-        distanceLabel.text = "text"
-        distanceLabel.textColor = . white
-        distanceLabel.font = .systemFont(ofSize: 25, weight: .light)
-        
-        vStack.axis = .vertical
-        vStack.alignment = .leading
-        vStack.spacing = -7
-        
-        distanceLabelsVStack.axis = .vertical
-        distanceLabelsVStack.spacing = 0
-        distanceLabelsVStack.alignment = .leading
-        distanceLabelsVStack.distribution = .fill
-        
-        buttonHStack.axis = .horizontal
-        buttonHStack.spacing = 5
-        
-        distanceHStack.axis = .horizontal
-        distanceHStack.alignment = .leading
-        distanceHStack.spacing = 0
-        distanceHStack.distribution = .equalSpacing
-
-    //MARK: - Hierarchy
+    //MARK: Hierarchy
+    private func setHierarchy() {
         vStack.addArrangedSubview(nameLabel)
         vStack.addArrangedSubview(descriptionLabel)
         self.view.addSubview(sceneView)
@@ -179,9 +147,10 @@ extension PlanetDetailViewController {
         
         distanceHStack.addArrangedSubview(buttonHStack)
         self.view.addSubview(distanceHStack)
+        //self.view.addSubview(collectionView)
     }
     
-    //MARK: - Layouts
+    //MARK: Layouts
     private func setLayouts() {
         NSLayoutConstraint.activate([
             vStack.topAnchor.constraint(equalTo: view.topAnchor, constant: 105),
@@ -192,15 +161,31 @@ extension PlanetDetailViewController {
             sceneView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             sceneView.widthAnchor.constraint(equalToConstant: 400),
             sceneView.heightAnchor.constraint(equalToConstant: 400),
-    
+            
             distanceHStack.topAnchor.constraint(equalTo: sceneView.bottomAnchor),
             distanceHStack.leftAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leftAnchor, constant: 16),
             distanceHStack.rightAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.rightAnchor, constant: -16),
+            
+            //            collectionView.topAnchor.constraint(equalTo: distanceHStack.bottomAnchor, constant: 5),
+            //            collectionView.leftAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leftAnchor, constant: 16),
+            //            collectionView.rightAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.rightAnchor, constant: -16),
+            //            collectionView.heightAnchor.constraint(equalToConstant: 50)
         ])
     }
-
+    
 }
 
-
+//MARK: - CollectionView DataSource
+//extension PlanetDetailViewController: UICollectionViewDataSource {
+//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//        <#code#>
+//    }
+//    
+//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+//        <#code#>
+//    }
+//    
+//    
+//}
 
 

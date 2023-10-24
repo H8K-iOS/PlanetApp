@@ -36,6 +36,7 @@
 		8CA657D82ADB01D200D9C65B /* HomeViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA657D72ADB01D200D9C65B /* HomeViewCell.swift */; };
 		8CA657DA2ADB0A9000D9C65B /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA657D92ADB0A9000D9C65B /* HomeViewModel.swift */; };
 		8CA657DC2ADB0ABB00D9C65B /* PlanetData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA657DB2ADB0ABB00D9C65B /* PlanetData.swift */; };
+		8CCCE78D2AE8381D002BB926 /* SliderScreenViews + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCCE78C2AE8381C002BB926 /* SliderScreenViews + Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +70,7 @@
 		8CA657D72ADB01D200D9C65B /* HomeViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewCell.swift; sourceTree = "<group>"; };
 		8CA657D92ADB0A9000D9C65B /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		8CA657DB2ADB0ABB00D9C65B /* PlanetData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetData.swift; sourceTree = "<group>"; };
+		8CCCE78C2AE8381C002BB926 /* SliderScreenViews + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SliderScreenViews + Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 			children = (
 				8C67F0192ADFD31A00CCAED5 /* NavigationController + Extensions.swift */,
 				8C67F01D2AE0097B00CCAED5 /* PlanetDetailViewController + Extensions.swift */,
+				8CCCE78C2AE8381C002BB926 /* SliderScreenViews + Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -372,6 +375,7 @@
 				8CA657DC2ADB0ABB00D9C65B /* PlanetData.swift in Sources */,
 				8CA657D62ADADA3D00D9C65B /* HomeViewController.swift in Sources */,
 				8CA657A72ADAD6F900D9C65B /* SceneDelegate.swift in Sources */,
+				8CCCE78D2AE8381D002BB926 /* SliderScreenViews + Extensions.swift in Sources */,
 				8C67F01E2AE0097B00CCAED5 /* PlanetDetailViewController + Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
